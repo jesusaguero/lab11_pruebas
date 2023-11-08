@@ -22,8 +22,8 @@ public class PetServiceTest {
 
     @Autowired
     private PetService petService;
-    
-    
+
+
 
     @Test
     public void testFindPetById() {
@@ -37,9 +37,9 @@ public class PetServiceTest {
         } catch (PetNotFoundException e) {
             fail(e.getMessage());
         }
- 
+
         log.info(pet.toString());
-        
+
         assertEquals(NAME, pet.getName());
     }
 

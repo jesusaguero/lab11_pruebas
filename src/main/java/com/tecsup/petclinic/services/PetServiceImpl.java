@@ -10,11 +10,6 @@ import com.tecsup.petclinic.entities.Pet;
 import com.tecsup.petclinic.exception.PetNotFoundException;
 import com.tecsup.petclinic.repositories.PetRepository;
 
-/**
- * 
- * @author jgomezm
- *
- */
 @Service
 @Slf4j
 public class PetServiceImpl implements PetService {
@@ -27,21 +22,11 @@ public class PetServiceImpl implements PetService {
 	}
 
 
-	/**
-	 * 
-	 * @param pet
-	 * @return
-	 */
 	@Override
 	public Pet create(Pet pet) {
 		return petRepository.save(pet);
 	}
 
-	/**
-	 * 
-	 * @param pet
-	 * @return
-	 */
 	@Override
 	public Pet update(Pet pet) {
 		return petRepository.save(pet);

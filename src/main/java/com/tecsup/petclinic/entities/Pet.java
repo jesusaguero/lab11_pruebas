@@ -6,11 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.sql.Date;
 
-/**
- * 
- * @author jgomezm
- *
- */
 @Entity(name = "pets")
 @Data
 public class Pet {

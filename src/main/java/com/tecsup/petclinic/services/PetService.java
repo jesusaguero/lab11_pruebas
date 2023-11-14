@@ -5,18 +5,8 @@ import java.util.List;
 import com.tecsup.petclinic.entities.Pet;
 import com.tecsup.petclinic.exception.PetNotFoundException;
 
-/**
- * 
- * @author jgomezm
- *
- */
 public interface PetService {
 
-	/**
-	 * 
-	 * @param pet
-	 * @return
-	 */
 	Pet create(Pet pet);
 
 	/**

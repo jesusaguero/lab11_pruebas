@@ -42,9 +42,26 @@ public class OwnerServiceMockitoTest {
         assertNotNull(createdOwner);
         assertEquals("Jesus", createdOwner.getFirst_name());
     }
-
     @Test
     public void testUpdateOwner() {
+
+        Owner ownerToUpdate = new Owner();
+        ownerToUpdate.setFirst_name("Renzo");
+        ownerToUpdate.setLast_name("Remuzgo");
+        ownerToUpdate.setAddress("Ate");
+        ownerToUpdate.setCity("Lima");
+        ownerToUpdate.setTelephone("96487598");
+
+        when(ownerRepository.save(any(Owner.class))).thenReturn(ownerToUpdate);
+
+        Owner updatedOwner = ownerService.create(ownerToUpdate);
+
+        // Assert
+        assertNotNull(updatedOwner);
+        assertEquals("Renzo", updatedOwner.getFirst_name());
+
+
+
     }
 
     @Test

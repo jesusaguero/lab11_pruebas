@@ -21,8 +21,6 @@ public class OwnerServiceTest {
 		String Address = "Lima";
 		String City = "Lima";
 		String telephone = "989679624";
-
-
-
 	}
+
 }

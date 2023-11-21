@@ -10,6 +10,11 @@ import com.tecsup.petclinic.entities.Pet;
 import com.tecsup.petclinic.exception.PetNotFoundException;
 import com.tecsup.petclinic.repositories.PetRepository;
 
+/**
+ *
+ * @author jgomezm
+ *
+ */
 @Service
 @Slf4j
 public class PetServiceImpl implements PetService {
@@ -22,11 +27,21 @@ public class PetServiceImpl implements PetService {
 	}
 
 
+	/**
+	 *
+	 * @param pet
+	 * @return
+	 */
 	@Override
 	public Pet create(Pet pet) {
 		return petRepository.save(pet);
 	}
 
+	/**
+	 *
+	 * @param pet
+	 * @return
+	 */
 	@Override
 	public Pet update(Pet pet) {
 		return petRepository.save(pet);
@@ -34,7 +49,7 @@ public class PetServiceImpl implements PetService {
 
 
 	/**
-	 * 
+	 *
 	 * @param id
 	 * @throws PetNotFoundException
 	 */
@@ -47,7 +62,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param id
 	 * @return
 	 */
@@ -58,12 +73,12 @@ public class PetServiceImpl implements PetService {
 
 		if ( !pet.isPresent())
 			throw new PetNotFoundException("Record not found...!");
-			
+
 		return pet.get();
 	}
 
 	/**
-	 * 
+	 *
 	 * @param name
 	 * @return
 	 */
@@ -78,7 +93,7 @@ public class PetServiceImpl implements PetService {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param typeId
 	 * @return
 	 */
@@ -89,11 +104,11 @@ public class PetServiceImpl implements PetService {
 
 		pets.stream().forEach(pet -> log.info("" + pet));
 
-		return pets; 
+		return pets;
 	}
 
 	/**
-	 * 
+	 *
 	 * @param ownerId
 	 * @return
 	 */

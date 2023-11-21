@@ -4,8 +4,13 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
+/**
+ *
+ * @author jgomezm
+ *
+ */
 @Entity(name = "pets")
 @Data
 public class Pet {
@@ -22,7 +27,7 @@ public class Pet {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "birth_date")
 	private Date birthDate;
-	
+
 	public Pet() {
 	}
 

@@ -49,4 +49,9 @@ public class OwnerServiceImpl implements OwnerService {
 
       return owner.get();
    }
+
+   @Override
+   public void deleteOwner(long ownerIdToDelete) {
+
+   }
 }

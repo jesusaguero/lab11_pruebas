@@ -23,4 +23,15 @@ public class OwnerServiceTest {
 		String telephone = "989679624";
 	}
 
+	@Test
+	public void testUpdateOwner () {
+
+		String first_name = "Renzo";
+		String last_name = "Remuzgo";
+		String address = "Lima";
+		String city = "Lima";
+		String telephone = "96487598";
+
+	}
+
 }

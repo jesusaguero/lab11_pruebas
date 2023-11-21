@@ -2,6 +2,7 @@ package com.tecsup.petclinic.webs;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import com.tecsup.petclinic.domain.PetTO;
+import com.tecsup.petclinic.entities.Owner;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -33,14 +34,30 @@ public class OwnerControllerTest {
     @Test
     public void testCreateOwner() throws Exception{
 
-        long id = 1;
         String first_name = "Jesus";
         String last_name = "Agüero";
         String address = "Sta Anita";
         String city = "Lima";
         String telephone = "989679624";
 
-        mockMvc.perform(get("owners/1"))
+        OwnerTO newOwnerTO = new OwnerTO();
+        newOwnerTO.setfirstname(first_name);
+        newOwnerTO.setlastname(last_name);
+        newOwnerTO.setaddress(address);
+        newOwnerTO.setcity(city);
+        newOwnerTO.settelephone(telephone);
+
+        mockMvc.perform(post("/owners")
+                .content((om.writeValueAsString(newOwnerTO))
+                        .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isCreated())
+
+                .andExpect(jsonPath("$.firstname", is(first_name)))
+                .andExpect(jsonPath("$.lastname", is(last_name)))
+                .andExpect(jsonPath("$.address", is(address)))
+                .andExpect(jsonPath("$.city", is(city)))
+                .andExpect(jsonPath("$.telephone", is(telephone))));
 
 
     }

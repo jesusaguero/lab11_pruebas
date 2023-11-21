@@ -65,9 +65,18 @@ public class OwnerServiceMockitoTest {
     }
 
     @Test
-    public void testDeleteOwner() throws OwnerNotFoundException {
-    }
+    public void testDeleteOwnerById() {
+        // Arrange
+        long ownerIdToDelete = 1;
 
+        when(ownerRepository.existsById(ownerIdToDelete)).thenReturn(true);
+        doNothing().when(ownerRepository).deleteById(ownerIdToDelete);
+
+        // Act
+        ownerService.deleteOwner(ownerIdToDelete);
+
+
+    }
     @Test
     public void testFindByIdOwner() throws OwnerNotFoundException {
 

@@ -23,4 +23,6 @@ public interface OwnerService {
      * @throws OwnerNotFoundException if the owner with the specified ID is not found
      */
     Owner findById(Long id) throws OwnerNotFoundException;
+
+    void deleteOwner(long ownerIdToDelete);
 }

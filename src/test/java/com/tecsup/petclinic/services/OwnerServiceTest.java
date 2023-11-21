@@ -29,35 +29,42 @@ public class OwnerServiceTest {
 		String City = "Lima";
 		String telephone = "989679624";
 	}
-
 	@Test
-	public void testFindByIdOwner(){
-		String firstName = "Jesus";
-		String lastName = "Agüero";
-		String address = "Lima";
-		String city = "Lima";
-		String telephone = "989679624";
+	public void testDeleteOwner() {
+		// Arrange
+		long idToDelete = 1;
 
-		Owner ownerToCreate = new Owner();
-		ownerToCreate.setFirst_name(firstName);
-		ownerToCreate.setLast_name(lastName);
-		ownerToCreate.setAddress(address);
-		ownerToCreate.setCity(city);
-		ownerToCreate.setTelephone(telephone);
+		// Act
+		ownerService.deleteOwner(idToDelete);
+	}
+		@Test
+		public void testFindByIdOwner() {
+			String firstName = "Jesus";
+			String lastName = "Agüero";
+			String address = "Lima";
+			String city = "Lima";
+			String telephone = "989679624";
 
-		Owner createdOwner = ownerService.create(ownerToCreate);
+			Owner ownerToCreate = new Owner();
+			ownerToCreate.setFirst_name(firstName);
+			ownerToCreate.setLast_name(lastName);
+			ownerToCreate.setAddress(address);
+			ownerToCreate.setCity(city);
+			ownerToCreate.setTelephone(telephone);
 
-		try{
-			Owner foundOwner = ownerService.findById(createdOwner.getId());
+			Owner createdOwner = ownerService.create(ownerToCreate);
 
-			assertNotNull(foundOwner);
-			assertEquals(firstName, foundOwner.getFirst_name());
-			assertEquals(lastName, foundOwner.getLast_name());
-			assertEquals(address, foundOwner.getAddress());
-			assertEquals(city, foundOwner.getCity());
-			assertEquals(telephone, foundOwner.getTelephone());
-		} catch (OwnerNotFoundException e) {
-			fail("Owner not found: " + e.getMessage());
+			try {
+				Owner foundOwner = ownerService.findById(createdOwner.getId());
+
+				assertNotNull(foundOwner);
+				assertEquals(firstName, foundOwner.getFirst_name());
+				assertEquals(lastName, foundOwner.getLast_name());
+				assertEquals(address, foundOwner.getAddress());
+				assertEquals(city, foundOwner.getCity());
+				assertEquals(telephone, foundOwner.getTelephone());
+			} catch (OwnerNotFoundException e) {
+				fail("Owner not found: " + e.getMessage());
+			}
 		}
 	}
-}

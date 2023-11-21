@@ -11,6 +11,8 @@ import com.tecsup.petclinic.entities.Owner;
 import com.tecsup.petclinic.exception.OwnerNotFoundException;
 import com.tecsup.petclinic.repositories.OwnerRepository;
 
+import java.util.Optional;
+
 @SpringBootTest
 public class OwnerServiceMockitoTest {
 
@@ -51,6 +53,18 @@ public class OwnerServiceMockitoTest {
 
     @Test
     public void testFindByIdOwner() throws OwnerNotFoundException {
+
+        Long ownerId = 1L ;
+        Owner ownerToReturn = new Owner();
+        ownerToReturn.setId(ownerId);
+        ownerToReturn.setFirst_name("Jeremy");
+
+        when(ownerRepository.findById(ownerId)).thenReturn(Optional.of(ownerToReturn));
+
+        Owner foundOwner = ownerService.findById(ownerId);
+
+        assertNotNull(foundOwner);
+        assertEquals("Jeremy", foundOwner.getFirst_name());
     }
 
 
